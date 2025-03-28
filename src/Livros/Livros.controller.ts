@@ -17,7 +17,7 @@ export class LivrosController{
     async criaLivros(@Body() dadosLivros: criaLivrosDTO){
         
          
-        var novoLivros = new LivrosEntity(uuid(),dadosLivros.Id,
+        var novoLivros = new LivrosEntity(dadosLivros.Id,
                                             dadosLivros.Titulo,dadosLivros.Autor,dadosLivros.AnoPublicacao,
                                             dadosLivros.Genero,dadosLivros.Sinopse);
         this.clsLivrosArmazenados.AdicionarLivros(novoLivros);
@@ -48,18 +48,18 @@ export class LivrosController{
         return listaRetorno;
     }
     
-    @Put('/:id')
-    async atualizaLivros(@Param('id') id: string, @Body() novosDados: alteraLivrosDTO){
-        const LivrosAtualizado = await this.clsLivrosArmazenados.atualizaLivros(id, novosDados);
+    @Put('/:Id')
+    async atualizaLivros(@Param('Id') Id: string, @Body() novosDados: alteraLivrosDTO){
+        const LivrosAtualizado = await this.clsLivrosArmazenados.atualizaLivros(Id, novosDados);
         return {
             usuario: LivrosAtualizado,
             message: "Livro Atualizado"
     }
 }
 
-@Delete('/:id')
-async removeLivros(@Param('id') id: string){
-    const LivrosRemovido = await this.clsLivrosArmazenados.removeLivros(id);
+@Delete('/:Id')
+async removeLivros(@Param('Id') Id: string){
+    const LivrosRemovido = await this.clsLivrosArmazenados.removeLivros(Id);
     return {
         usuario: LivrosRemovido,
         message: "Livro Removido"

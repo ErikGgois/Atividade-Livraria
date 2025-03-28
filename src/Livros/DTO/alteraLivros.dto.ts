@@ -18,7 +18,7 @@ export class alteraLivrosDTO{
 
     @IsInt()
     @IsOptional()
-    AnoPublicacao: Number;
+    AnoPublicacao: number;
 
 
     @IsString()

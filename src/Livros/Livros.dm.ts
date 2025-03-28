@@ -16,8 +16,8 @@ export class LivrosArmazenados{
         return this.#Livros;
     }
 
-    atualizaLivros(id: string, dadosAtualizacao: Partial<LivrosEntity>){
-        const Livros = this.buscaPorID(id);
+    atualizaLivros(Id: string, dadosAtualizacao: Partial<LivrosEntity>){
+        const Livros = this.buscaPorID(Id);
         Object.entries(dadosAtualizacao).forEach(
             ([chave, valor]) => {
                 if(chave === 'id'){
@@ -32,9 +32,9 @@ export class LivrosArmazenados{
         return Livros;
     }
 
-    private buscaPorID(id: string){
+    private buscaPorID(Id: string){
         const possivelLivros = this.#Livros.find(
-            LivrosSalvo => LivrosSalvo.id === id
+            LivrosSalvo => LivrosSalvo.Id === Id
         )
         if(!possivelLivros){
             throw new Error('Livro não encontrado');
@@ -44,11 +44,11 @@ export class LivrosArmazenados{
         return possivelLivros;
     }
 
-    async removeLivros(id: string){
-        const Livros = this.buscaPorID(id);
+    async removeLivros(Id: string){
+        const Livros = this.buscaPorID(Id);
 
         this.#Livros = this.#Livros.filter(
-            LivrosSalvo => LivrosSalvo.id !== id);
+            LivrosSalvo => LivrosSalvo.Id !== Id);
             return Livros;
     }
 

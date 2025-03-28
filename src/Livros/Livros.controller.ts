@@ -4,7 +4,7 @@ import { LivrosEntity } from "./Livros.entity";
 import { criaLivrosDTO } from "./DTO/Livros.dto";
 
 import {v4 as uuid} from 'uuid';
-import { ListaLivrosDTO } from "./DTO/consulta.dto";
+import { ListaLivrosDTO } from "./DTO/consultaLivros.dto";
 import { alteraLivrosDTO } from "./DTO/alteraLivros.dto";
 
 

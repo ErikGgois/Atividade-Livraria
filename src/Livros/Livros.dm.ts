@@ -1,5 +1,5 @@
 import { Injectable } from "@nestjs/common";
-import { LivrosEntity } from "../Livro/Livros.entity";
+import { LivrosEntity } from "./Livros.entity";
 
 @Injectable()
 export class LivrosArmazenados{
